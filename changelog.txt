@@ -1,0 +1,11 @@
+== Changelog ==
+
+=1.2 Jan 21 2016
+*Fixed navigation menu issues.
+*Changed height of header.
+
+= 1.1 Oct 25 2015
+*Changed screenshot.png
+
+= 1.0 - Oct 19 2015 =
+* Initial release
