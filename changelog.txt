@@ -1,0 +1,15 @@
+== Changelog ==
+
+=1.2.1 Feb 11 2016
+*Added check for diplaying topbar navigation menu only if it is assigned to that location.
+*Added stylesheet to add style for TinyMCE editor.
+
+=1.2 Jan 21 2016
+*Fixed navigation menu issues.
+*Changed height of header.
+
+= 1.1 Oct 25 2015
+*Changed screenshot.png
+
+= 1.0 - Oct 19 2015 =
+* Initial release
