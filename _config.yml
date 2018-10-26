@@ -1,0 +1,11 @@
+name: Nisarg
+menu:
+  - id: home
+    name: Home
+    url: /
+  - id: sample-page
+    name: Sample Page
+    url: /sample-page
+  - id: contact
+    name: Contact
+    url: /contact

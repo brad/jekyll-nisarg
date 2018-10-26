@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <div id="page" class="hfeed site">
+    <header id="masthead"  role="banner">
+      <nav id="site-navigation" class="main-navigation navbar-fixed-top navbar-left" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container" id="navigation_menu">
+          <div class="navbar-header">
+            <button type="button" class="menu-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span> 
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ '/' | relative_url }}">{{ site.name }}</a>
+          </div><!-- .navbar-header -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul id="menu-primary-menu" class="primary-menu nav-menu" aria-expanded="false">
+              {% for menu_item in site.menu %}
+                <li class="menu-item {% if page.url == menu_item.url %}current-menu-item{% endif %} menu-item-{{ menu_item.id }}">
+                  <a href="{{ menu_item.url | relative_url }}">{{ menu_item.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div><!--#container-->
+      </nav>
+      <div id="cc_spacer"></div><!-- used to clear fixed navigation by the themes js -->  
+      <div class="site-header" style="background-image: url('/images/headers/{% if site.header-img %}{{ site.header-img }}{% else %}mountains.png{% endif %}');">
+        <div class="site-branding">
+          <a class="home-link" href="{{ '/' | relative_url }}" title="{{ site.name }}" rel="home">
+            <h1 class="site-title">{{ site.name }}</h1>
+            <h2 class="site-description">{% if site.description %}{{ site.description }}{% else %}Lorem ipsum dolor amet{% endif %}</h2>
+          </a>
+        </div><!--.site-branding-->
+      </div><!--.site-header-->
+    </header>
+  </div>
+  <div id="content" class="site-content">
+    {{ content }}
+  </div>
+  <script type="text/javascript" src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
