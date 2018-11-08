@@ -29,8 +29,13 @@
       <div class="site-branding">
         <a class="home-link" href="{{ '/' | relative_url }}" title="{{ site.name }}" rel="home">
           <h1 class="site-title">{{ site.name }}</h1>
-          <h2 class="site-description">{% if site.description %}{{ site.description }}{% else %}Lorem ipsum dolor
-            amet{% endif %}</h2>
+          <h2 class="site-description">
+            {% if site.description %}
+              {{ site.description }}
+            {% else %}
+              Just Another My Blog Sites Site
+            {% endif %}
+          </h2>
         </a>
       </div>
       <!--.site-branding-->
