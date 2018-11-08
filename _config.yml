@@ -1,4 +1,5 @@
 name: Nisarg
+header-img: mountains.png
 menu:
   - id: home
     name: Home
@@ -9,3 +10,8 @@ menu:
   - id: contact
     name: Contact
     url: /contact
+paginate: 12
+paginate_path: '/page:num/'
+plugins:
+  - jekyll-feed
+  - jekyll-paginate

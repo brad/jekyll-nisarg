@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
+var clean = require('gulp-clean');
 var concat = require('gulp-concat');
+var fs = require('fs');
 var merge = require('merge-stream');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
@@ -19,26 +21,39 @@ var messages = {
  */
 gulp.task('jekyll-build', function (done) {
     browserSync.notify(messages.jekyllBuild);
-    return cp.spawn(jekyll, ['build'], { stdio: 'inherit' })
+    return cp.spawn('bundle', ['exec', jekyll, 'build'], { stdio: 'inherit' })
         .on('close', done);
 });
 
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', ['jekyll-build', 'fonts', 'sass', 'js'], function () {
     browserSync.reload();
 });
 
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', ['js', 'sass', 'jekyll-build'], function () {
+gulp.task('browser-sync', ['jekyll-build', 'fonts', 'sass', 'js'], function () {
     browserSync({
         server: {
             baseDir: '_site'
         }
     });
+});
+
+gulp.task('clean:fonts', function () {
+    return gulp.src('_site/assets/fonts').pipe(clean({ force: true }));
+});
+
+gulp.task('fonts', ['clean:fonts', 'sass'], function () {
+    if (!fs.existsSync('_site/assets/fonts')) {
+        fs.mkdirSync('_site/assets/fonts');
+    }
+    return gulp.src([
+        './node_modules/font-awesome/fonts/*',
+    ]).pipe(gulp.dest('_site/assets/fonts/'));
 });
 
 /**
@@ -64,8 +79,10 @@ gulp.task('sass', function () {
 
     //merge the two streams and concatenate their contents into a single file
     return merge(cssStream, sassStream)
-        .pipe(cssnano())
+        .pipe(sourcemaps.init())
         .pipe(concat('style.css'))
+        .pipe(cssnano())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('_site/assets/css'))
         .pipe(browserSync.reload({ stream: true }));
 });
@@ -89,9 +106,9 @@ gulp.task('js', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch(['assets/scss/*.scss', 'assets/scss/*/*.scss'], ['sass']);
-    gulp.watch(['assets/js/*.js'], ['js']);
-    gulp.watch(['*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch(['src/scss/*.scss', 'src/scss/*/*.scss'], ['sass']);
+    gulp.watch(['src/js/*.js'], ['js']);
+    gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
 });
 
 /**

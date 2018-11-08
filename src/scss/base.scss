@@ -23,12 +23,12 @@
 
 /**
  * 1.0 Reset
-  * -----------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  */
 
 
 body {
-    background: #eceff1;
+    background: #eceff1 !important;
 }
 
 body,
@@ -36,17 +36,17 @@ button,
 input,
 select,
 textarea {
-    color: #424242;
-    font-size: 18px;
+    color: #424242 !important;
+    font-size: 18px !important;
     font-weight: 400;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif !important;
 }
 
 
 h1,h2,h3,h4,h5,h6 {
     clear: both;
     color: #212121;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif !important;
     font-style: normal;
     font-weight: 400;
 }
@@ -450,6 +450,7 @@ img.wp-post-image{
 .featured-image img{
     display: block;
     margin:0 auto 15px;
+    width: 100%;
 }
 
 
@@ -972,10 +973,6 @@ img.wp-post-image{
     padding: 0 4em;
 }
 
-.featured-image{
-    padding: 0.5em 0.5em;
-}
-
 .single-post-content{
     padding: 0 4em;
 }
@@ -1018,6 +1015,11 @@ img.wp-post-image{
 .entry-summary,
 .entry-content{
     color: #424242;
+}
+
+.entry-summary > p:first-child::after {
+    content: "..";
+    display: inline;
 }
 
 .entry-header{
@@ -1131,9 +1133,10 @@ img.wp-post-image{
 
 /**Buttons**/
 .btn-default{
-    border: none;
-    border-radius: 0px;
+    border: none !important;
+    border-radius: 0px !important;
     color: #212121;
+    border-bottom: 1px solid #009688 !important;
 }
 
 .btn-default:hover, .btn-default:focus{
@@ -1563,10 +1566,6 @@ img.wp-post-image{
 
     .entry-footer{
         padding-bottom: 1em;
-    }
-
-    .featured-image{
-        padding: 0.5em 0.5em;
     }
 
     .single-post-content{
