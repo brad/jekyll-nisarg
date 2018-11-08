@@ -72,8 +72,8 @@ a:active { /* Improves readability when focused and also mouse hovered in all br
     outline: 0;
 }
 
-a:hover{
-    text-decoration: none;
+a:hover {
+    text-decoration: none !important;
 }
 
 a img {
@@ -925,12 +925,12 @@ img.wp-post-image{
     text-shadow:rgba(255,255,255,.1) -1px -1px 1px,rgba(0,0,0,.5) 1px 1px 1px;
 }
 
-.site-title a,
-.site-description a{
+.site-title a:hover,
+.site-description a:hover {
     text-decoration: none;
 }
 
-a.home-link {
+a.home-link:hover {
      text-decoration: none;
 }
 
@@ -944,7 +944,7 @@ a.home-link {
  * ----------------------------------------------------------------------------
  */
 
- .sticky {
+.sticky {
     
 }
 

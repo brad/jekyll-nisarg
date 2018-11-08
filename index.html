@@ -25,7 +25,29 @@ layout: main
       </h2>
 
       <div class="entry-meta">
-        <h5 class="entry-date">{{post.date | date: '%B %e, %Y'}}</h5>
+        <h5 class="entry-date">
+          <i class="fa fa-calendar-o"></i>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{post.date | date: '%B %e, %Y'}}</a>
+          <span class="byline">
+            <span class="sep"></span>
+            <i class="fa fa-user"></i>
+            <span class="author vcard">
+              {% assign author = post.author | default:site.default_author %}
+              <a
+                class="url fn n"
+                href="{{ '/author/' | prepend: site.baseurl | append: author }}"
+                title="View all posts by {{ site.authors[author].name }}"
+                rel="author">
+                {{ site.authors[author].name }}
+              </a>
+            </span>
+          </span>
+          <i class="fa fa-comments-o"></i>
+          <span class="screen-reader-text">Comments </span>
+          <a href="{{ post.url | prepend: site.baseurl | append: '#respond' }}" class="comments-link">
+            Comments
+          </a>
+        </h5>
       </div><!-- .entry-meta -->
     </header><!-- .entry-header -->
 

@@ -1,5 +1,9 @@
 name: Nisarg
 header-img: mountains.png
+authors:
+  blogwriter:
+    name: Blog Writer
+default_author: blogwriter
 menu:
   - id: home
     name: Home
