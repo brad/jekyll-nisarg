@@ -22,23 +22,23 @@ layout: main
     <div class="entry-meta">
       <h5 class="entry-date">
         <i class="fa fa-calendar-o"></i>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{post.date | date: '%B %e, %Y'}}</a>
+        <a href="{{ page.url | prepend: site.baseurl }}">{{page.date | date: '%B %e, %Y'}}</a>
         <span class="byline">
           <span class="sep"></span>
           <i class="fa fa-user"></i>
           <span class="author vcard">
             <a
               class="url fn n"
-              href="{{ '/author/' | prepend: site.baseurl | append: post.author }}"
-              title="View all posts by {{ site.data.authors[post.author].name }}"
+              href="{{ '/author/' | prepend: site.baseurl | append: page.author }}"
+              title="View all posts by {{ site.data.authors[page.author].name }}"
               rel="author">
-              {{ site.data.authors[post.author].name }}
+              {{ site.data.authors[page.author].name }}
             </a>
           </span>
         </span>
         <i class="fa fa-comments-o"></i>
         <span class="screen-reader-text">Comments </span>
-        <a href="{{ post.url | prepend: site.baseurl | append: '#respond' }}" class="comments-link">
+        <a href="{{ page.url | prepend: site.baseurl | append: '#respond' }}" class="comments-link">
           Comments
         </a>
       </h5>
