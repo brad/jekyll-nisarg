@@ -32,13 +32,12 @@ layout: main
             <span class="sep"></span>
             <i class="fa fa-user"></i>
             <span class="author vcard">
-              {% assign author = post.author | default:site.default_author %}
               <a
                 class="url fn n"
-                href="{{ '/author/' | prepend: site.baseurl | append: author }}"
-                title="View all posts by {{ site.authors[author].name }}"
+                href="{{ '/author/' | prepend: site.baseurl | append: post.author }}"
+                title="View all posts by {{ site.data.authors[post.author].name }}"
                 rel="author">
-                {{ site.authors[author].name }}
+                {{ site.data.authors[post.author].name }}
               </a>
             </span>
           </span>

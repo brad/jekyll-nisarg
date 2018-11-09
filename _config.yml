@@ -1,9 +1,9 @@
 name: Nisarg
 header-img: mountains.png
-authors:
-  blogwriter:
-    name: Blog Writer
-default_author: blogwriter
+collections:
+  authors:
+    output: true
+    permalink: /author/:name/index
 menu:
   - id: home
     name: Home
