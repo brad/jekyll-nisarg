@@ -1,0 +1,29 @@
+---
+layout: main
+---
+
+<article class="post-content full-content">
+  {% if page.img %}
+    <div class="featured-image">
+      <img
+        width="1024"
+        height="576"
+        src="{{ '/images/' | prepend: site.baseurl | append: page.img }}"
+        class="attachment-nisarg-full-width size-nisarg-full-width wp-post-image"
+        alt="{{ page.title }}">
+    </div>
+  {% endif %}
+  <header class="entry-header">
+    <span class="screen-reader-text">{{ page.title }}</span>
+    <h2 class="entry-title">
+      {{ page.title }}
+    </h2>
+  </header><!-- .entry-header -->
+
+  <div class="entry-content">
+    {{ page.content | markdownify }}
+  </div><!-- .entry-content -->
+
+  <footer class="entry-footer">
+  </footer><!-- .entry-footer -->
+</article><!-- #post-## -->

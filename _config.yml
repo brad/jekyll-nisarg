@@ -10,12 +10,13 @@ menu:
     url: /
   - id: sample-page
     name: Sample Page
-    url: /sample-page
+    url: /sample-page/
   - id: contact
     name: Contact
     url: /contact
 paginate: 12
 paginate_path: '/page:num/'
+permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-paginate
