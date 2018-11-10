@@ -53,35 +53,4 @@ layout: main
   </footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
-<div class="post-navigation">
-  <nav class="navigation" role="navigation">
-    <h2 class="screen-reader-text">Post navigation</h2>
-    <div class="nav-links">
-      <div class="row">
-        <!-- Get Next Post -->
-        {% if page.next.url %}
-          <div class="col-md-6 next-post">
-            <a href="{{ page.next.url | prepend: site.baseurl }}">
-              <span class="next-prev-text">
-                <i class="fa fa-angle-left"></i>NEXT
-              </span><br>
-              {{ page.next.title }}
-            </a>
-          </div>
-        {% endif %}
-
-        <!-- Get Previous Post -->
-        {% if page.previous.url %}
-          <div class="col-md-6 prev-post">
-            <a href="{{ page.previous.url | prepend: site.baseurl }}">
-              <span class="next-prev-text">
-                PREVIOUS<i class="fa fa-angle-right"></i>
-              </span><br>
-              {{ page.previous.title }}
-            </a>
-          </div>
-        {% endif %}
-      </div>
-    </div><!-- .nav-links -->
-  </nav><!-- .navigation-->
-</div>
+{% include post-navigation.html %}

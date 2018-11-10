@@ -14,9 +14,17 @@ menu:
   - id: contact
     name: Contact
     url: /contact
-paginate: 12
+paginate: 10
 paginate_path: '/page:num/'
 permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-paginate
+exclude:
+  - src
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - node_modules
+  - package.json
+  - package-lock.json
