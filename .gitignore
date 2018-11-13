@@ -4,3 +4,4 @@ _site
 dist
 vendor
 .bundle
+npm-debug.log

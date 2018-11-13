@@ -78,6 +78,8 @@ gulp.task('sass', function () {
 gulp.task('js', function () {
     return gulp.src([
         './node_modules/jquery/dist/jquery.js',
+        './node_modules/liquidjs/dist/liquid.min.js',
+        './node_modules/lunr/lunr.js',
         './node_modules/bootstrap/dist/bootstrap.js',
         './node_modules/html5shiv/dist/html5shiv.js',
     ].concat(['src/js/*']))

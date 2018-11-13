@@ -8,7 +8,7 @@
  *     3.2 Site Header
  * 4.0 Content
  *     4.1 Post-Content
- *     4.2 Page and Post Navigation links 
+ *     4.2 Page and Post Navigation links
  *     4.3 Post Formats
  *     4.4 Gallery
  *     4.5 Post-Comments
@@ -18,7 +18,7 @@
  * 8.0 Print
  * 9.0 Jetpack Infinite Scroll
  * 10.0 Gutenberg
- *     
+ *
 **/
 
 /**
@@ -38,7 +38,7 @@ select,
 textarea {
     color: #424242 !important;
     font-size: 18px !important;
-    font-weight: 400;
+    font-weight: 400 !important;
     font-family: 'Source Sans Pro' !important;
 }
 
@@ -101,7 +101,7 @@ blockquote p{
 }
 
 code {
-    white-space: normal;   
+    white-space: normal;
     color: #666;
 }
 
@@ -128,7 +128,7 @@ table,th,td{
 th, td {
   padding: 0.7em;
   text-align: left;
- 
+
 }
 
 tbody tr:nth-child(odd) {
@@ -139,8 +139,8 @@ button,
 input,
 select,
 textarea {
-	font-size: 100%;
-	margin: 0;
+	font-size: 100% !important;
+	margin: 0 !important;
 	max-width: 100%;
 	vertical-align: baseline;
 }
@@ -226,7 +226,7 @@ input[type="submit"] {
     background:    -o-linear-gradient(#607d8b, #455a64);
     background:    -webkit-linear-gradient(#607d8b, #455a64);
     background:    linear-gradient(#607d8b, #455a64);
-    color:#fff;
+    color:#fff !important;
 }
 
 button:hover,
@@ -239,7 +239,7 @@ input[type="submit"]:hover {
     background:    -o-linear-gradient(#607d8b, #455a64);
     background:    -webkit-linear-gradient(#607d8b, #455a64);
     background:    linear-gradient(#607d8b, #455a64);
-    color:#fff;
+    color:#fff !important;
 }
 
 button:focus,
@@ -256,7 +256,7 @@ input[type="submit"]:active {
     background:    -o-linear-gradient(#607d8b, #455a64);
     background:    -webkit-linear-gradient(#607d8b, #455a64);
     background:    linear-gradient(#607d8b, #455a64);
-    color:#fff;
+    color:#fff !important;
 }
 
 input[type=text],
@@ -396,7 +396,7 @@ a img.aligncenter {
     padding: 0 4px 5px;
 }
 
-.size-auto, 
+.size-auto,
 .size-full,
 .size-large,
 .size-medium,
@@ -417,7 +417,7 @@ img[class*="wp-image-"] {
     max-width: 100%;
     height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
 }
- 
+
 .entry-content img,
 img.size-full {
     max-width: 100%;
@@ -483,12 +483,12 @@ img.wp-post-image{
 
 .admin-bar .navbar-fixed-top {
   top: 32px; }
-  
+
 @media (max-width: 782px) {
     .admin-bar .navbar-fixed-top{
     top: 46px;
     position: absolute;
-  } 
+  }
 }
 .navbar-brand {
     font-size: 20px !important;
@@ -761,7 +761,7 @@ img.wp-post-image{
         border: 1px solid #ccc;
         border-radius: 4px;
         border-top-left-radius: 0;
-        border-top-right-radius: 0; 
+        border-top-right-radius: 0;
         -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
         box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     }
@@ -820,7 +820,7 @@ img.wp-post-image{
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    text-align: center;  
+    text-align: center;
 }
 
 
@@ -897,7 +897,7 @@ img.wp-post-image{
     color: #fff;
     font-size: 3.5em;
     font-weight: 700;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     letter-spacing: 10px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -945,7 +945,7 @@ a.home-link:hover {
  */
 
 .sticky {
-    
+
 }
 
 .sticky-post{
@@ -962,7 +962,7 @@ a.home-link:hover {
     background-color: white;
     clear: both;
     margin-bottom: 2em;
-    
+
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
@@ -983,7 +983,7 @@ a.home-link:hover {
     overflow: hidden;
 }
 
-.post-comments{  
+.post-comments{
     border-radius: 0px;
     border: none;
     padding: 2em;
@@ -1017,7 +1017,7 @@ a.home-link:hover {
     color: #424242;
 }
 
-.entry-summary > p:first-child::after {
+#main > article .entry-summary > p:first-child::after {
     content: "..";
     display: inline;
 }
@@ -1038,7 +1038,7 @@ a.home-link:hover {
     color: #212121;
 }
 
-.entry-meta{
+.entry-meta {
     clear: both;
     color: #727272;
     text-transform: capitalize;
@@ -1059,12 +1059,19 @@ a.home-link:hover {
     margin-bottom: 0px;
 }
 
-.entry-header .entry-meta::after{
+.entry-header .entry-meta::after {
     content:"";
     height: 2px;
     display: block;
     width: 50px;
     margin: 10px auto;
+}
+
+#secondary #search-sidebar-results {
+  .widget-title {
+    margin-top: 1.5em;
+    padding-top: 0;
+  }
 }
 
 
@@ -1157,8 +1164,8 @@ a.home-link:hover {
     text-align: left;
 }
 
-/* 
-* 4.2 Page and Post Navigation links 
+/*
+* 4.2 Page and Post Navigation links
 * --------------------------------------------------------------
 */
 
@@ -1168,7 +1175,7 @@ a.home-link:hover {
     margin: 0 0 1.5em;
 }
 
-.nav-links{ 
+.nav-links{
     background: #fff;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
     padding: 15px;
@@ -1181,7 +1188,7 @@ a.home-link:hover {
 }
 
 .nav-previous,.nav-next,.next-post,.prev-post{
-    background: #fff;   
+    background: #fff;
     color: #727272;
     font-weight: 400;
     text-transform: capitalize;
@@ -1213,15 +1220,15 @@ a.home-link:hover {
 /* Post Format = Status----------------------------------------------- */
 
 .blog .format-status .entry-content,
-.archive .format-staus .entry-content{ 
-    background-color: #CFD8DC;  
+.archive .format-staus .entry-content{
+    background-color: #CFD8DC;
     padding-top: 2em;
     font-size: 16px;
 }
 
 .blog .format-status .entry-footer,
-.archive .format-staus .entry-footer{ 
-    background-color: #CFD8DC;  
+.archive .format-staus .entry-footer{
+    background-color: #CFD8DC;
 }
 
 /*
@@ -1358,7 +1365,7 @@ a.home-link:hover {
 }
 
 .bypostauthor {
-    
+
 }
 /**
  * 5.0 Sidebar - Widgets
@@ -1543,7 +1550,7 @@ a.home-link:hover {
     h6{
         font-size: 12px;
     }
-    
+
     blockquote{
         margin-left: 0.3em;
     }
@@ -1559,7 +1566,7 @@ a.home-link:hover {
     .sticky-post{
         padding: 3px 15px;
     }
-    
+
     .entry-header,.entry-content,.entry-summary,.entry-footer{
         padding: 1em 1.5em;
     }
@@ -1618,7 +1625,7 @@ a.home-link:hover {
 
     .site-title {
         font-size: 2em;
-        letter-spacing: 10px;  
+        letter-spacing: 10px;
     }
 
     .site-title::after{
@@ -1632,7 +1639,7 @@ a.home-link:hover {
 
     .site-description {
         font-size: 14px;
-        letter-spacing: 1px; 
+        letter-spacing: 1px;
     }
 
     .site-footer{
@@ -1640,7 +1647,7 @@ a.home-link:hover {
     }
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
         border-top: none;
-    }    
+    }
 }
 @media (max-width: 359px) {
     .site-header{
@@ -1652,7 +1659,7 @@ a.home-link:hover {
 
     .site-title {
         font-size: 1.5em;
-        letter-spacing: 2px;  
+        letter-spacing: 2px;
         margin-top: 5px;
         margin-bottom: 3px;
     }
@@ -1683,7 +1690,7 @@ a.home-link:hover {
         font-size: 10pt;
     }
 
-    
+
     .site {
         max-width: 98%;
     }
@@ -1800,12 +1807,12 @@ a.home-link:hover {
      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15); 
+    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     padding:10px  15px !important;
 }
 
-#infinite-handle span button, 
-#infinite-handle span button:hover, 
+#infinite-handle span button,
+#infinite-handle span button:hover,
 #infinite-handle span button:focus {
     font-size: 18px;
     text-transform: capitalize;

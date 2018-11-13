@@ -17,14 +17,10 @@ menu:
 paginate: 10
 paginate_path: '/page:num/'
 permalink: pretty
+jekyll_search_url_blacklist:
+  - /
+  - /feed.xml
+  - /page2/
 plugins:
   - jekyll-feed
   - jekyll-paginate
-exclude:
-  - src
-  - Gemfile
-  - Gemfile.lock
-  - gulpfile.js
-  - node_modules
-  - package.json
-  - package-lock.json
