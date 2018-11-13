@@ -3,65 +3,7 @@ layout: main
 ---
 
 {% for post in paginator.posts %}
-  <article class="post-content">
-    {% if post.img %}
-      <div class="featured-image">
-        <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">
-          <img
-            width="1024"
-            height="576"
-            src="{{ '/images/' | prepend: site.baseurl | append: post.img }}"
-            class="attachment-nisarg-full-width size-nisarg-full-width wp-post-image"
-            alt="{{ post.title }}">
-        </a>
-      </div>
-    {% endif %}
-    <header class="entry-header">
-      <span class="screen-reader-text">{{ post.title }}</span>
-      <h2 class="entry-title">
-        <a href="{{ post.url | prepend: site.baseurl }}" rel="bookmark">
-          {{ post.title }}
-        </a>
-      </h2>
-
-      <div class="entry-meta">
-        <h5 class="entry-date">
-          <i class="fa fa-calendar-o"></i>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{post.date | date: '%B %e, %Y'}}</a>
-          <span class="byline">
-            <span class="sep"></span>
-            <i class="fa fa-user"></i>
-            <span class="author vcard">
-              <a
-                class="url fn n"
-                href="{{ '/author/' | prepend: site.baseurl | append: post.author }}"
-                title="View all posts by {{ site.data.authors[post.author].name }}"
-                rel="author">
-                {{ site.data.authors[post.author].name }}
-              </a>
-            </span>
-          </span>
-          <i class="fa fa-comments-o"></i>
-          <span class="screen-reader-text">Comments </span>
-          <a href="{{ post.url | prepend: site.baseurl | append: '#respond' }}" class="comments-link">
-            Comments
-          </a>
-        </h5>
-      </div><!-- .entry-meta -->
-    </header><!-- .entry-header -->
-
-    <div class="entry-summary">
-      {{ post.excerpt }}
-      <p class="read-more">
-        <a class="btn btn-default" href="{{ post.url | prepend: site.baseurl }}">
-          Read More<span class="screen-reader-text">Read More</span>
-        </a>
-      </p>
-    </div><!-- .entry-summary -->
-
-    <footer class="entry-footer">
-    </footer><!-- .entry-footer -->
-  </article><!-- #post-## -->
+  {% include post-item.html %}
 {% endfor %}
 
 {% include pagination.html %}

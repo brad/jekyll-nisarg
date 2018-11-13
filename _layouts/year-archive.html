@@ -1,0 +1,9 @@
+---
+layout: main
+---
+
+<h1>Archive of posts from {{ page.date | date: "%Y" }}</h1>
+
+{% for post in page.posts %}
+  {% include post-item.html %}
+{% endfor %}
