@@ -2,11 +2,10 @@
 layout: main
 ---
 
-<section id="search-results">
-  <h1>Search Results</h1>
-</section>
+<section id="search-results"></section>
 {% raw %}
   <script id="search-results-template" type="text/template">
+    <h1>Search Results</h1>
     {% if results.length != 0 %}
       {% for result in results %}
         {% assign page = store[result.ref] %}
