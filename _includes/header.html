@@ -25,7 +25,7 @@
       <!--#container-->
     </nav>
     <div id="cc_spacer"></div><!-- used to clear fixed navigation by the themes js -->
-    <div class="site-header" style="background-image: url('/images/headers/{% if site.header-img %}{{ site.header-img }}{% else %}mountains.png{% endif %}');">
+    <div class="site-header" style="background-image: url('{{ '/images/headers/' | prepend:site.baseurl }}{% if site.header-img %}{{ site.header-img }}{% else %}mountains.png{% endif %}');">
       <div class="site-branding">
         <a class="home-link" href="{{ '/' | relative_url }}" title="{{ site.name }}" rel="home">
           <h1 class="site-title">{{ site.name }}</h1>
