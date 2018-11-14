@@ -1,0 +1,41 @@
+name: Nisarg
+header-img: mountains.png
+collections:
+  authors:
+    output: true
+    permalink: /author/:name/index
+discus_identifier: mr-brown
+menu:
+  - id: home
+    name: Home
+    url: /
+  - id: sample-page
+    name: Sample Page
+    url: /sample-page/
+  - id: contact
+    name: Contact
+    url: /contact
+paginate: 10
+paginate_path: '/page:num/'
+permalink: pretty
+jekyll-archives:
+  enabled:
+    - categories
+    - year
+    - month
+    - tags
+  layouts:
+    category: category-archive
+    year: year-archive
+    month: month-archive
+    tag: tag-archive
+  permalinks:
+    category: '/category/:name/'
+jekyll_search_url_blacklist:
+  - /
+  - /feed.xml
+  - /page2/
+plugins:
+  - jekyll-archives
+  - jekyll-feed
+  - jekyll-paginate

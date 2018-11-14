@@ -1,0 +1,52 @@
+---
+layout: main
+---
+
+<section id="search-results"></section>
+{% raw %}
+  <script id="search-results-template" type="text/template">
+    <h1>Search Results</h1>
+    {% if results.length != 0 %}
+      {% for result in results %}
+        {% assign page = store[result.ref] %}
+        <article class="post-content">
+          <header class="entry-header">
+            <span class="screen-reader-text">{{ page.title }}</span>
+            <h2 class="entry-title">
+              <a href="{{ page.url }}" rel="bookmark">{{ page.title }}</a>
+            </h2>
+
+            <div class="entry-meta">
+              {% if page.date %}
+                <h5 class="entry-date">
+                  <i class="fa fa-calendar-o"></i>
+                  <a href="{{ page.url }}">{{ page.date | date: '%B %e, %Y' }}</a>
+                  <span class="byline">
+                    <span class="sep"></span>
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">
+                      <a
+                        class="url fn n"
+                        href="/author/{{ page.author }}"
+                        title="View all posts by {{ page.authorName }}"
+                        rel="author">
+                        {{ page.authorName }}
+                      </a>
+                    </span>
+                  </span>
+                  <i class="fa fa-comments-o"></i>
+                  <span class="screen-reader-text">Comments </span>
+                  <a href="{{ page.url | append: '#respond' }}" class="comments-link">
+                    Comments
+                  </a>
+                </h5>
+              {% endif %}
+            </div>
+          </header>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p>Nothing found.</p>
+    {% endif %}
+  </script>
+{% endraw %}

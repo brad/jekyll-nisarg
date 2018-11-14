@@ -1,0 +1,33 @@
+
+<div class="page-navigation">
+  <nav class="navigation" role="navigation">
+    <h2 class="screen-reader-text">Page navigation</h2>
+    <div class="nav-links">
+      <div class="row">
+        <!-- Get Previous Page -->
+        <div class="col-md-4 prev-page">
+          {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}">
+              <span class="next-prev-text">
+                <i class="fa fa-angle-left"></i>PREVIOUS
+              </span><br>
+            </a>
+          {% endif %}
+        </div>
+        <div class="col-md-4 page_number">
+          Page: {{ paginator.page }} of {{ paginator.total_pages }}
+        </div>
+        <!-- Get Next Page -->
+        <div class="col-md-4 next-page">
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}">
+              <span class="next-prev-text">
+                NEXT<i class="fa fa-angle-right"></i>
+              </span><br>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div><!-- .nav-links -->
+  </nav><!-- .navigation-->
+</div>

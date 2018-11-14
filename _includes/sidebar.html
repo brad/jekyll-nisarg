@@ -1,0 +1,110 @@
+<div id="secondary" class="col-md-3 sidebar widget-area" role="complementary">
+    <aside id="search-2" class="widget widget_search">
+        <form role="search" method="get" class="search-form" action="/search">
+            <label>
+                <span class="screen-reader-text">Search for:</span>
+                <input
+                  type="search"
+                  id="search-query"
+                  class="search-field"
+                  pattern="...*"
+                  placeholder="Search …"
+                  value=""
+                  name="q"
+                  title="At least 3 characters"
+                  minlength=3
+                  required>
+            </label>
+            <button type="submit" class="search-submit">
+              <span class="screen-reader-text">Search</span>
+            </button>
+            <script type="text/javascript">
+              window.store = {
+                {% assign documents = site.pages | concat:site.documents %}
+                {% for doc in documents %}
+                  {% unless site.jekyll_search_url_blacklist contains doc.url %}
+                    "{{ doc.url | slugify }}": {
+                      "date": "{{ doc.date }}",
+                      "title": "{{ doc.title | xml_escape }}",
+                      "author": "{{ doc.author | xml_escape }}",
+                      "authorName": "{{ site.data.authors[doc.author].name }}",
+                      "category": "{{ doc.category | xml_escape }}",
+                      "content": {{ doc.content | strip_html | strip_newlines | jsonify }},
+                      "url": "{{ doc.url | xml_escape }}"
+                    },
+                  {% endunless %}
+                {% endfor %}
+              };
+            </script>
+        </form>
+        <section id="search-sidebar-results" style="display: none;"> </section>
+        {% raw %}
+          <script id="search-sidebar-results-template" type="text/template">
+            {% if results.length != 0 %}
+              <h4 class="widget-title">Search Results</h4>
+              <ul>
+              {% for result in results %}
+                {% assign page = store[result.ref] %}
+                <li>
+                  <span class="screen-reader-text">
+                    {{ page.title }}
+                  </span>
+                  <a href="{{ page.url }}" rel="bookmark">
+                    {{ page.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            {% else %}
+              <p>Nothing found.</p>
+            {% endif %}
+          </script>
+        {% endraw %}
+    </aside>
+    <aside id="recent-posts-2" class="widget widget_recent_entries">
+        <h4 class="widget-title">Recent Posts</h4>
+        <ul>
+        {% for post in site.posts limit:5 %}
+          <li>
+            <a href="{{ post.url | prepend:site.base_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+    </aside>
+    <aside id="archives-2" class="widget widget_archive">
+        <h4 class="widget-title">Archives</h4>
+        <ul>
+          {% assign counter = 0 %}
+          {% for post in site.posts %}
+            {% assign thismonthyear = post.date | date: "%B %Y" %}
+            {% assign prevmonthyear = post.previous.date | date: "%B %Y" %}
+            {% assign counter = counter | plus: 1 %}
+            {% if thismonthyear != prevmonthyear %}
+              <li>
+                <a href="/{{ post.date | date:"%Y" }}/{{ post.date | date:"%m" }}/">
+                  {{ thismonthyear }} ({{ counter }})
+                </a>
+              </li>
+              {% assign counter = 0 %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+    </aside>
+    <aside id="categories-2" class="widget widget_categories">
+      <h4 class="widget-title">Categories</h4>
+      <ul>
+        {% for category in site.categories %}
+          <li class="cat-item cat-item-1">
+            <a href="{{ site.base_url }}/category/{{ category | first }}/">
+              {{ category | first }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+    <aside id="meta-2" class="widget widget_meta">
+        <h4 class="widget-title">Meta</h4>
+        <ul>
+            <li><a href="{{ '/feed.xml' | prepend:site.base_url }}">Entries <abbr title="Atom Feed">Atom</abbr></a></li>
+            <li><a href="https://jekyllrb.com/" title="Jekyll is a blog-aware static site generator in Ruby">Jekyllrb.com</a></li>
+        </ul>
+    </aside>
+</div>
