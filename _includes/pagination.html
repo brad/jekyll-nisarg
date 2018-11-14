@@ -7,7 +7,7 @@
         <!-- Get Previous Page -->
         <div class="col-md-4 prev-page">
           {% if paginator.previous_page %}
-            <a href="{{ paginator.previous_page_path }}">
+            <a href="{{ paginator.previous_page_path | prepend:site.baseurl }}">
               <span class="next-prev-text">
                 <i class="fa fa-angle-left"></i>PREVIOUS
               </span><br>
@@ -20,7 +20,7 @@
         <!-- Get Next Page -->
         <div class="col-md-4 next-page">
           {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path }}">
+            <a href="{{ paginator.next_page_path | prepend:site.baseurl }}">
               <span class="next-prev-text">
                 NEXT<i class="fa fa-angle-right"></i>
               </span><br>
