@@ -1,4 +1,5 @@
 name: Nisarg
+baseurl: "/jekyll-nisarg"
 header-img: mountains.png
 collections:
   authors:
