@@ -35,6 +35,7 @@ jekyll_search_url_blacklist:
   - /
   - /feed.xml
   - /page2/
+  - /search/
 plugins:
   - jekyll-archives
   - jekyll-feed
