@@ -4,7 +4,6 @@ header-img: mountains.png
 collections:
   authors:
     output: true
-    permalink: /author/:name/index
 discus_identifier: mr-brown
 menu:
   - id: home
