@@ -23,7 +23,8 @@
               window.store = {
                 {% assign documents = site.pages | concat:site.documents %}
                 {% for doc in documents %}
-                  {% unless site.jekyll_search_url_blacklist contains doc.url %}
+                  {% if site.jekyll_search_url_blacklist contains doc.url %}
+                  {% elsif doc.content %}
                     "{{ doc.url | slugify }}": {
                       "date": "{% if doc.date and doc.author %}{{ doc.date }}{% endif %}",
                       "title": "{{ doc.title | xml_escape }}",
@@ -33,7 +34,7 @@
                       "content": {{ doc.content | strip_html | strip_newlines | jsonify }},
                       "url": "{{ doc.url | xml_escape }}"
                     },
-                  {% endunless %}
+                  {% endif %}
                 {% endfor %}
               };
             </script>
