@@ -97,8 +97,8 @@
         $('#search' + (opts.sidebar ? '-sidebar' : '') + '-results').hide('fast');
       } else {
         var results = idx.search(searchTerm); // Get lunr to perform a search
-        console.log(results);
         displaySearchResults({
+          baseurl: window.baseurl,
           results: results,
           store: window.store,
           sidebar: opts.sidebar,
