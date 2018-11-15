@@ -77,21 +77,23 @@
           <header class="entry-header">
             <span class="screen-reader-text">{{ page.title }}</span>
             <h2 class="entry-title">
-              <a href="{{ page.url }}" rel="bookmark">{{ page.title }}</a>
+              <a href="{{ page.url | prepend:baseurl }}" rel="bookmark">{{ page.title }}</a>
             </h2>
 
             <div class="entry-meta">
               {% if page.date %}
                 <h5 class="entry-date">
                   <i class="fa fa-calendar-o"></i>
-                  <a href="{{ page.url }}">{{ page.date | date: '%B %e, %Y' }}</a>
+                  <a href="{{ page.url | prepend:baseurl }}">
+                    {{ page.date | date: '%B %e, %Y' }}
+                  </a>
                   <span class="byline">
                     <span class="sep"></span>
                     <i class="fa fa-user"></i>
                     <span class="author vcard">
                       <a
                         class="url fn n"
-                        href="/author/{{ page.author }}"
+                        href="{{ baseurl }}/author/{{ page.author }}"
                         title="View all posts by {{ page.authorName }}"
                         rel="author">
                         {{ page.authorName }}
@@ -100,7 +102,7 @@
                   </span>
                   <i class="fa fa-comments-o"></i>
                   <span class="screen-reader-text">Comments </span>
-                  <a href="{{ page.url | append: '#respond' }}" class="comments-link">
+                  <a href="{{ page.url | prepend:baseurl | append: '#respond' }}" class="comments-link">
                     Comments
                   </a>
                 </h5>
@@ -119,7 +121,7 @@
         </div>
         <div id="secondary" class="col-md-3 sidebar widget-area" role="complementary">
     <aside id="search-2" class="widget widget_search">
-        <form role="search" method="get" class="search-form" action="/search">
+        <form role="search" method="get" class="search-form" action="/jekyll-nisarg/search">
             <label>
                 <span class="screen-reader-text">Search for:</span>
                 <input
@@ -138,6 +140,7 @@
               <span class="screen-reader-text">Search</span>
             </button>
             <script type="text/javascript">
+              window.baseurl = "/jekyll-nisarg";
               window.store = {
                 
                 
@@ -617,7 +620,7 @@
                 
                   
                     "author-blogwriter-index": {
-                      "date": "2018-11-15 04:04:24 +0000",
+                      "date": "2018-11-15 04:12:55 +0000",
                       "title": "Blog Writer Bio",
                       "author": "",
                       "authorName": "",
@@ -642,7 +645,7 @@
                   <span class="screen-reader-text">
                     {{ page.title }}
                   </span>
-                  <a href="{{ page.url }}" rel="bookmark">
+                  <a href="{{ page.url | prepend:baseurl }}" rel="bookmark">
                     {{ page.title }}
                   </a>
                 </li>
@@ -658,23 +661,23 @@
         <ul>
         
           <li>
-            <a href="/2018/06/12/the-wonderful-himalayan/">My first trip: The wonderful Himalayan</a>
+            <a href="/jekyll-nisarg/2018/06/12/the-wonderful-himalayan/">My first trip: The wonderful Himalayan</a>
           </li>
         
           <li>
-            <a href="/2018/05/12/texas-grand-canyon/">Texas: Grand Canyon</a>
+            <a href="/jekyll-nisarg/2018/05/12/texas-grand-canyon/">Texas: Grand Canyon</a>
           </li>
         
           <li>
-            <a href="/2018/04/12/sweden-beautiful-forest/">Sweden: Beautiful forest</a>
+            <a href="/jekyll-nisarg/2018/04/12/sweden-beautiful-forest/">Sweden: Beautiful forest</a>
           </li>
         
           <li>
-            <a href="/2018/03/12/nevada-on-the-way-to-nevada/">Nevada: On the way to Nevada</a>
+            <a href="/jekyll-nisarg/2018/03/12/nevada-on-the-way-to-nevada/">Nevada: On the way to Nevada</a>
           </li>
         
           <li>
-            <a href="/exercise/2018/02/12/malaysia-free-swimming/">Malaysia: Free swimming</a>
+            <a href="/jekyll-nisarg/exercise/2018/02/12/malaysia-free-swimming/">Malaysia: Free swimming</a>
           </li>
         
     </aside>
@@ -688,7 +691,7 @@
             
             
               <li>
-                <a href="/2018/06/">
+                <a href="/jekyll-nisarg/2018/06/">
                   June 2018 (1)
                 </a>
               </li>
@@ -700,7 +703,7 @@
             
             
               <li>
-                <a href="/2018/05/">
+                <a href="/jekyll-nisarg/2018/05/">
                   May 2018 (1)
                 </a>
               </li>
@@ -712,7 +715,7 @@
             
             
               <li>
-                <a href="/2018/04/">
+                <a href="/jekyll-nisarg/2018/04/">
                   April 2018 (1)
                 </a>
               </li>
@@ -724,7 +727,7 @@
             
             
               <li>
-                <a href="/2018/03/">
+                <a href="/jekyll-nisarg/2018/03/">
                   March 2018 (1)
                 </a>
               </li>
@@ -736,7 +739,7 @@
             
             
               <li>
-                <a href="/2018/02/">
+                <a href="/jekyll-nisarg/2018/02/">
                   February 2018 (1)
                 </a>
               </li>
@@ -748,7 +751,7 @@
             
             
               <li>
-                <a href="/2018/01/">
+                <a href="/jekyll-nisarg/2018/01/">
                   January 2018 (1)
                 </a>
               </li>
@@ -760,7 +763,7 @@
             
             
               <li>
-                <a href="/2017/12/">
+                <a href="/jekyll-nisarg/2017/12/">
                   December 2017 (1)
                 </a>
               </li>
@@ -772,7 +775,7 @@
             
             
               <li>
-                <a href="/2017/10/">
+                <a href="/jekyll-nisarg/2017/10/">
                   October 2017 (1)
                 </a>
               </li>
@@ -784,7 +787,7 @@
             
             
               <li>
-                <a href="/2017/09/">
+                <a href="/jekyll-nisarg/2017/09/">
                   September 2017 (1)
                 </a>
               </li>
@@ -796,7 +799,7 @@
             
             
               <li>
-                <a href="/2017/08/">
+                <a href="/jekyll-nisarg/2017/08/">
                   August 2017 (1)
                 </a>
               </li>
@@ -813,7 +816,7 @@
             
             
               <li>
-                <a href="/2017/07/">
+                <a href="/jekyll-nisarg/2017/07/">
                   July 2017 (2)
                 </a>
               </li>
@@ -827,13 +830,13 @@
       <ul>
         
           <li class="cat-item cat-item-1">
-            <a href="/category/Writing/">
+            <a href="/jekyll-nisarg/category/writing/">
               Writing
             </a>
           </li>
         
           <li class="cat-item cat-item-1">
-            <a href="/category/Exercise/">
+            <a href="/jekyll-nisarg/category/exercise/">
               Exercise
             </a>
           </li>
@@ -843,7 +846,7 @@
     <aside id="meta-2" class="widget widget_meta">
         <h4 class="widget-title">Meta</h4>
         <ul>
-            <li><a href="/feed.xml">Entries <abbr title="Atom Feed">Atom</abbr></a></li>
+            <li><a href="/jekyll-nisarg/feed.xml">Entries <abbr title="Atom Feed">Atom</abbr></a></li>
             <li><a href="https://jekyllrb.com/" title="Jekyll is a blog-aware static site generator in Ruby">Jekyllrb.com</a></li>
         </ul>
     </aside>
