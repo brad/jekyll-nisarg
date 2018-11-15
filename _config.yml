@@ -40,3 +40,14 @@ plugins:
   - jekyll-archives
   - jekyll-feed
   - jekyll-paginate
+exclude:
+  - src
+  - gulpfile.js
+  - changelog.txt
+  - screenshot.png
+  - readme.txt
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - node_modules
