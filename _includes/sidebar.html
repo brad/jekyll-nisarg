@@ -25,7 +25,7 @@
                 {% for doc in documents %}
                   {% unless site.jekyll_search_url_blacklist contains doc.url %}
                     "{{ doc.url | slugify }}": {
-                      "date": "{% unless doc.collection %}{{ doc.date }}{% endunless %}",
+                      "date": "{% if doc.date and doc.author %}{{ doc.date }}{% endif %}",
                       "title": "{{ doc.title | xml_escape }}",
                       "author": "{{ doc.author | xml_escape }}",
                       "authorName": "{{ site.data.authors[doc.author].name }}",
