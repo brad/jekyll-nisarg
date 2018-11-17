@@ -19,48 +19,14 @@
               <span class="screen-reader-text">Search</span>
             </button>
             <script type="text/javascript">
-              window.baseurl = "{{ site.baseurl }}";
-              window.store = {
-                {% assign documents = site.pages | concat:site.documents %}
-                {% for doc in documents %}
-                  {% if site.jekyll_search_url_blacklist contains doc.url %}
-                  {% elsif doc.content %}
-                    "{{ doc.url | slugify }}": {
-                      "date": "{% if doc.date and doc.author %}{{ doc.date }}{% endif %}",
-                      "title": "{{ doc.title | xml_escape }}",
-                      "author": "{{ doc.author | xml_escape }}",
-                      "authorName": "{{ site.data.authors[doc.author].name }}",
-                      "category": "{{ doc.category | xml_escape }}",
-                      "content": {{ doc.content | strip_html | strip_newlines | jsonify }},
-                      "url": "{{ doc.url | xml_escape }}"
-                    },
-                  {% endif %}
-                {% endfor %}
+              window.JEKYLL_SEARCH_GLOBALS = {
+                baseurl: "{{ site.baseurl }}",
+                site: { data: { authors: {{ site.data.authors | jsonify }} }},
               };
             </script>
         </form>
         <section id="search-sidebar-results" style="display: none;"> </section>
-        {% raw %}
-          <script id="search-sidebar-results-template" type="text/template">
-            {% if results.length != 0 %}
-              <h4 class="widget-title">Search Results</h4>
-              <ul>
-              {% for result in results %}
-                {% assign page = store[result.ref] %}
-                <li>
-                  <span class="screen-reader-text">
-                    {{ page.title }}
-                  </span>
-                  <a href="{{ page.url | prepend:baseurl }}" rel="bookmark">
-                    {{ page.title }}
-                  </a>
-                </li>
-              {% endfor %}
-            {% else %}
-              <p>Nothing found.</p>
-            {% endif %}
-          </script>
-        {% endraw %}
+        {% include search-sidebar-results.html %}
     </aside>
     <aside id="recent-posts-2" class="widget widget_recent_entries">
         <h4 class="widget-title">Recent Posts</h4>

@@ -52,21 +52,21 @@
     // Search
     // Initalize lunr with the fields it will be searching on. I've given title
     // a boost of 10 to indicate matches on this field are more important.
-    var idx = lunr(function () {
-      this.field('id');
-      this.field('title', { boost: 10 });
-      this.field('author');
-      this.field('category');
-      this.field('content');
-      for (var key in window.store) {
-        this.add({
-          'id': key,
-          'title': window.store[key].title,
-          'author': window.store[key].author,
-          'category': window.store[key].category,
-          'content': window.store[key].content
-        });
-      }
+    var searchData = $.getJSON(JEKYLL_SEARCH_GLOBALS.baseurl + '/search.json');
+    var idx = null;
+    searchData.then(function (loadedData) {
+      idx = lunr(function () {
+        this.field('id');
+        this.field('date');
+        this.field('title', { boost: 10 });
+        this.field('author');
+        this.field('categories');
+        this.field('content');
+        this.field('url');
+        for (var key in loadedData) {
+          this.add($.extend({ "id": key }, loadedData[key]));
+        }
+      });
     });
     function getQueryVariable(variable) {
       var query = window.location.search.substring(1);
@@ -96,12 +96,13 @@
       if (opts.q.length < 3) {
         $('#search' + (opts.sidebar ? '-sidebar' : '') + '-results').hide('fast');
       } else {
-        var results = idx.search(searchTerm); // Get lunr to perform a search
-        displaySearchResults({
-          baseurl: window.baseurl,
-          results: results,
-          store: window.store,
-          sidebar: opts.sidebar,
+        searchData.then(function (loadedData) {
+          var results = idx.search(searchTerm); // Get lunr to perform a search
+          displaySearchResults($.extend({
+            results: results,
+            store: loadedData,
+            sidebar: opts.sidebar,
+          }, window.JEKYLL_SEARCH_GLOBALS));
         });
       }
     }

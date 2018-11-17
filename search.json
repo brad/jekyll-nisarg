@@ -1,0 +1,25 @@
+---
+layout: null
+---
+
+{% assign all_documents = site.pages | concat:site.documents %}
+{% assign whitelisted_documents = '' | split: '' %}
+{% for doc in all_documents %}
+  {% if site.jekyll_search_url_blacklist contains doc.url %}
+  {% elsif doc.content %}
+    {% assign whitelisted_documents = whitelisted_documents | push: doc %}
+  {% endif %}
+{% endfor %}
+{
+  {% for doc in whitelisted_documents %}
+    "{{ doc.url | slugify }}": {
+      "date": "{% if doc.date and doc.author %}{{ doc.date }}{% endif %}",
+      "title": "{{ doc.title | xml_escape }}",
+      "author": "{{ doc.author | xml_escape }}",
+      "categories": "{% for category in doc.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
+      "content": {{ doc.content | strip_html | strip_newlines | jsonify }},
+      "url": "{{ doc.url | xml_escape }}"
+    }
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+}
