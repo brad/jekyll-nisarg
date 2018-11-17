@@ -16,8 +16,8 @@ layout: main
               <a href="{{ page.url | prepend:baseurl }}" rel="bookmark">{{ page.title }}</a>
             </h2>
 
-            <div class="entry-meta">
-              {% if page.date %}
+            {% if page.date != "" %}
+              <div class="entry-meta">
                 <h5 class="entry-date">
                   <i class="fa fa-calendar-o"></i>
                   <a href="{{ page.url | prepend:baseurl }}">
@@ -30,9 +30,9 @@ layout: main
                       <a
                         class="url fn n"
                         href="{{ baseurl }}/author/{{ page.author }}"
-                        title="View all posts by {{ page.authorName }}"
+                        title="View all posts by {{ site.data.authors[page.author].name }}"
                         rel="author">
-                        {{ page.authorName }}
+                        {{ site.data.authors[page.author].name }}
                       </a>
                     </span>
                   </span>
@@ -42,8 +42,8 @@ layout: main
                     Comments
                   </a>
                 </h5>
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
           </header>
         </article>
       {% endfor %}
