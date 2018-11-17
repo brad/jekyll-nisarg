@@ -1,3 +1,5 @@
+[![Build status](https://dev.azure.com/bradpitcher/Jekyll%20Nisarg/_apis/build/status/Build)](https://dev.azure.com/bradpitcher/Jekyll%20Nisarg/_build/latest?definitionId=2)
+
 Theme Name: Nisarg
 
 Author: Falguni Desai
