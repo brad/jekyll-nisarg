@@ -46,7 +46,7 @@ exclude:
   - gulpfile.js
   - changelog.txt
   - screenshot.png
-  - readme.txt
+  - README.md
   - Gemfile
   - Gemfile.lock
   - package.json
