@@ -38,7 +38,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-## For copy of GNU General Public License see: (http://www.gnu.org/licenses/ ).
+### For copy of GNU General Public License see: (http://www.gnu.org/licenses/ ).
 
 ### Bootstrap - http://getbootstrap.com/
 
