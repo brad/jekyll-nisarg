@@ -65,8 +65,10 @@ Code License
 ### Google Fonts - http://www.google.com/fonts/
 
 Licensed Under: SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
-"Lato" - SIL Open Font License, 1.1 
-"Source Sans Pro" -	SIL Open Font License, 1.1 
+
+"Lato" - SIL Open Font License, 1.1
+
+"Source Sans Pro" - SIL Open Font License, 1.1 
 
 ### Stock Images - https://www.pexels.com/
 
